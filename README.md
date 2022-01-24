@@ -19,6 +19,7 @@
 ## QA/Dev окружения
 
 `npm run qa` - Запуск всех тестов на указанном окружении (тесты ранятся на браузере Chrome)
+  
 `npm run qa-cross` - Запуск всех тестов на браузерах Firefox, Chrome, Edge, Safari
 
 `mpm run generate-qa-report` - Генерация последнего отчета
