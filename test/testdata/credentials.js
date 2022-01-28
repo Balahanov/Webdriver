@@ -1,4 +1,8 @@
 let creds = {
-    login: 
-    password:
+    user1: {
+        login: "tomsmith",
+        password: "SuperSecretPassword!"
+    }
 }
+
+export default creds
