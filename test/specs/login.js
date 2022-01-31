@@ -1,6 +1,4 @@
-import { securePage, loginPage } from '../pageobjects/page/index.js';
-import { loginStep } from '../pageobjects/step/index.js';
-import creds from '../testdata/credentials.js'
+import { loginPage, loginStep, securePage, creds } from '../pageobjects/index.js';
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {

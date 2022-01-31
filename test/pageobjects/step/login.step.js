@@ -1,4 +1,4 @@
-import { loginPage } from "../page";
+import { loginPage } from "../index"
 import Step from "./step";
 
 class LoginStep extends Step {

@@ -5,7 +5,7 @@ import wdioConf from '../../wdio.conf.js'
 
 exports.config = merge(wdioConf.config, {
 
-    baseUrl: 'https://the-internet.herokuapp.com/123123',
+    baseUrl: 'https://the-internet.herokuapp.com/',
     envName: "qa",
     reporters: [['allure', {
         outputDir: './report/qa/allure-results',

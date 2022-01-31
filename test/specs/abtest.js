@@ -1,5 +1,4 @@
-import { abtestPage, mainPage } from "../pageobjects/page/index.js";
-import { abtestStep, mainStep } from "../pageobjects/step/index.js";
+import { abtestPage, mainPage, abtestStep, mainStep } from '../pageobjects/index.js';
 
 async function checkPageEl() {
     await expect(abtestPage.title).toBeDisplayed();

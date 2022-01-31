@@ -4,14 +4,14 @@ describe('test for video player', () => {
     });
 
     it('Try to change default camera to the video from testdata', async () => {
-
-        var constraints = { audio: true, video: true };
-        await $('li*=Была обнаружена ').waitForDisplayed({ timeout: 4000 });
-        await $("#webcam-launcher").click();
+        const player = $('#webcam-stream');
+        const webcameraDetectedMessage = $('li*=Была обнаружена ');
+        const startTranslationButton = $("#webcam-launcher");
+        const successMessage = $('li*=Тестирование завершено успешно');
         
-        await browser.pause(999999);
-        Navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-
-        //await $('id="webcam-launcher"').click();
+        await webcameraDetectedMessage.waitForDisplayed({ timeout: 4000 });
+        await startTranslationButton.click();
+        await expect(player).toHaveAttribute('autoplay');
+        await successMessage.waitForDisplayed({ timeout: 20000 });
     });
 });

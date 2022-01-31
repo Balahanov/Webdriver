@@ -54,7 +54,7 @@ exports.config = {
         "goog:chromeOptions": {
             args: ["--use-fake-ui-for-media-stream",
                 "--use-fake-device-for-media-stream",
-                "--use-file-for-fake-video-capture=Webdriver/test_stream.mjpeg"]
+                "--use-file-for-fake-video-capture="+ __dirname.replace(/\\/gi, '/') + '/test/pageobjects/testdata/test_stream.mjpeg']
         }
     }],
     /* capabilities: [{
