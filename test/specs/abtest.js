@@ -14,14 +14,15 @@ describe('Check text content on the page', () => {
 
     it('Navigate to the page from main menu', async () => {
         await mainStep.open();
-        let link = await mainPage.abtestLink
-        await link.click();
+        await mainStep.clickLink('A/B Testing');
+        /* let link = await mainPage.abtestLink
+        await link.click(); */
         await expect(browser).toHaveUrl('https://the-internet.herokuapp.com/abtest')
         await checkPageEl();
     });
 
 
-    it('Text content corresponds required', async () => {
+    it.skip('Text content corresponds required', async () => {
         await abtestStep.open();
         await checkPageEl();
     });
