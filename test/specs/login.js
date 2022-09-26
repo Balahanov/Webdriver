@@ -1,13 +1,11 @@
-import { loginPage, loginStep, securePage, creds } from '../pageobjects/index.js';
+import { loginStep, creds } from '../pageobjects/index.js';
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
         await loginStep.open();
-        await expect(loginPage.title).toBeDisplayed()
-        await expect(loginPage.title).toHaveTextContaining('Login Page');
-        await loginStep.login(creds.user1.login, creds.user1.password);
-        await expect(securePage.flashAlert).toBeExisting();
-        await expect(securePage.flashAlert).toHaveTextContaining(
+        await expect(loginStep.getTitle()).toBeDisplayed();
+        await expect(loginStep.getTitle()).toHaveTextContaining('Login Page');
+        await expect(loginStep.login(creds.user1.login, creds.user1.password)).toHaveTextContaining(
             'You logged into a secure area!');
     });
 });

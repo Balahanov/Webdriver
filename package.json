@@ -13,17 +13,16 @@
         "@wdio/selenium-standalone-service": "^7.16.11",
         "@wdio/spec-reporter": "^7.16.11",
         "chromedriver": "^96.0.0",
-        "wdio-chromedriver-service": "^7.2.4"
+        "wdio-chromedriver-service": "^7.2.4",
+        "wdio-intercept-service": "^4.2.1"
     },
     "scripts": {
         "report-open": "allure open ./report/allure-report",
         "wdio": "wdio run wdio.conf.js",
-
         "clear-qa-report": "rimraf ./report/qa/allure-results",
         "qa": "npm run clear-qa-report & wdio run ./user/qa/qa.conf.js & npm run generate-qa-report",
         "qa-cross": "npm run clear-qa-report & wdio run ./user/qa/qa.cross.conf.js & npm run generate-qa-report",
         "generate-qa-report": "npx allure generate ./report/qa/allure-results --clean -o ./report/allure-report & npm run report-open",
-
         "clear-dev-report": "rimraf ./report/dev/allure-results",
         "dev": "npm run clear-dev-report & wdio run ./user/dev/dev.conf.js & npm run generate-dev-report",
         "dev-cross": "npm run clear-dev-report & wdio run ./user/dev/dev.cross.conf.js & npm run generate-dev-report",

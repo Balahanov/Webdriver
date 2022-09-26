@@ -1,4 +1,3 @@
-//import { config } from "../../wdio.conf"
 let creds;
 
 switch (browser.config.envName) {
@@ -9,6 +8,10 @@ switch (browser.config.envName) {
             user1: {
                 login: "tomsmith",
                 password: "SuperSecretPassword!"
+            },
+            user2: {
+                login: "admin",
+                password: "admin"
             }
         }
 
@@ -21,6 +24,10 @@ switch (browser.config.envName) {
             user1: {
                 login: "tomsmith",
                 password: "SuperSecretPassword!"
+            },
+            user2: {
+                login: "admin",
+                password: "admin"
             }
         }
 

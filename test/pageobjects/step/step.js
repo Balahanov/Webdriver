@@ -1,6 +1,11 @@
+import Page from "../page/page"
+
 export default class Step {
     
-    open(path) {
-        return browser.url(`${path}`)
+
+
+    getFooter() {
+        return Page.prototype.footer
     }
+
 }
