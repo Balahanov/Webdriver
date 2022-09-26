@@ -1,6 +1,11 @@
+import Page from "../page/page"
+
 export default class Step {
     
-    open(path) {
-        return browser.url(`https://the-internet.herokuapp.com/${path}`)
+
+
+    getFooter() {
+        return Page.prototype.footer
     }
+
 }
