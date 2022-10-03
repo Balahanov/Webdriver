@@ -58,6 +58,7 @@ class PracticeFormPage extends MainPage {
     };
 
     /* Page steps */
+    /* Default properties are declared in case input data is not important */
     async fillForm(fName = 'Test', lName = 'Test', email = 'email@test.qa', gender = 'Male',
         tNumber = '1234567890', subject = 'English', hobbie = 'Sports',
         address = 'New York, Central str. 55', state = 'Haryana', city = 'Panipat') {
@@ -74,9 +75,7 @@ class PracticeFormPage extends MainPage {
         await this.citySelect().click();
         await this.citySelect().$(`div=${city}`).click();
     };
-    /* Default properties are declared in case input data is not important */
-    async validateForm(fName = 'Test', lName = 'Test', email = 'email@test.qa', gender = 'Male', tNumber = '1234567890', subject = 'English', hobbie = 'Sports',
-        address = 'New York, Central str. 55', state = 'Haryana', city = 'Panipat') {
+    async validateForm(fName, lName, email, gender, tNumber, subject, address, state, city) {
         await expect(this.inputedValuePopup('Student Name')).toHaveText(`${fName} ${lName}`);
         await expect(this.inputedValuePopup('Student Email')).toHaveText(email);
         await expect(this.inputedValuePopup('Gender')).toHaveText(gender);
