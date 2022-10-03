@@ -74,6 +74,7 @@ class PracticeFormPage extends MainPage {
         await this.citySelect().click();
         await this.citySelect().$(`div=${city}`).click();
     };
+    /* Default properties are declared in case input data is not important */
     async validateForm(fName = 'Test', lName = 'Test', email = 'email@test.qa', gender = 'Male', tNumber = '1234567890', subject = 'English', hobbie = 'Sports',
         address = 'New York, Central str. 55', state = 'Haryana', city = 'Panipat') {
         await expect(this.inputedValuePopup('Student Name')).toHaveText(`${fName} ${lName}`);
