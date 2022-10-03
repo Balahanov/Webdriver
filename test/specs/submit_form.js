@@ -15,7 +15,7 @@ describe('Tests for form submition', () => {
         await practiceFormPage.submitPopup().isDisplayed();
         await expect(practiceFormPage.titlePopup()).toHaveText('Thanks for submitting the form');
         await practiceFormPage.validateForm('Test1', 'Test2', 'email1@test.qa', 'Male', '1234567891', 'English',
-            'Sports', 'New York, Central str. 55', 'Haryana', 'Panipat');
+            'New York, Central str. 55', 'Haryana', 'Panipat');
         await practiceFormPage.closePopupButton().click();
     });
     it('Submit form with uploaded file', async () => {
