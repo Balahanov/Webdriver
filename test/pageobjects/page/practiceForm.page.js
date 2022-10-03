@@ -38,27 +38,68 @@ class PracticeFormPage extends MainPage {
     citySelect() {
         return $('#city');
     };
+    uploadFile() {
+        return $('#uploadPicture');
+    };
     submitButton() {
         return $('#submit');
     };
+    submitPopup() {
+        return $('.modal-content');
+    };
+    titlePopup() {
+        return $('#example-modal-sizes-title-lg');
+    };
+    inputedValuePopup(fieldName) {
+        return this.submitPopup().$('tbody').$(`td=${fieldName}`).nextElement();
+    };
+    closePopupButton() {
+        return $('#closeLargeModal');
+    };
+
     /* Page steps */
-    fillForm(fName = 'Test', lName = 'Test', email = 'email@test.qa', gender = 'Male',
-        tNumber = '1234567890', subject = 'English{Enter}', hobbie = 'Sports',
+    async fillForm(fName = 'Test', lName = 'Test', email = 'email@test.qa', gender = 'Male',
+        tNumber = '1234567890', subject = 'English', hobbie = 'Sports',
         address = 'New York, Central str. 55', state = 'Haryana', city = 'Panipat') {
-        this.firstNameInput().setValue(fName);
-        this.lastNameInput().setValue(lName);
-        this.emailInput().setValue(email);
-        this.genderRadiobutton(gender).click();
-        this.numberInput.setValue(tNumber);
-        this.subjectAutocomplete.setValue(`${subject}{Enter}`);
-        this.hobbiesCheckbox(hobbie).click();
-        this.addressInput.setValue(address);
-        this.stateSelect.setValue(state);
-        this.citySelect.setValue(city);
-        this.submitButton.click();
-    }
-    open(title) {
-        return super.open(title);
+        await this.firstNameInput().setValue(fName);
+        await this.lastNameInput().setValue(lName);
+        await this.emailInput().setValue(email);
+        await this.genderRadiobutton(gender).click();
+        await this.numberInput().setValue(tNumber);
+        await this.subjectAutocomplete().setValue(`${subject}`);
+        await this.hobbiesCheckbox(hobbie).click();
+        await this.addressInput().setValue(address);
+        await this.stateSelect().click();
+        await this.stateSelect().$(`div=${state}`).click();
+        await this.citySelect().click();
+        await this.citySelect().$(`div=${city}`).click();
+    };
+    async validateForm(fName = 'Test', lName = 'Test', email = 'email@test.qa', gender = 'Male', tNumber = '1234567890', subject = 'English', hobbie = 'Sports',
+        address = 'New York, Central str. 55', state = 'Haryana', city = 'Panipat') {
+        await expect(this.inputedValuePopup('Student Name')).toHaveText(`${fName} ${lName}`);
+        await expect(this.inputedValuePopup('Student Email')).toHaveText(email);
+        await expect(this.inputedValuePopup('Gender')).toHaveText(gender);
+        await expect(this.inputedValuePopup('Mobile')).toHaveText(tNumber);
+        await expect(this.inputedValuePopup('Subjects')).toHaveText(subject);
+        await expect(this.inputedValuePopup('Address')).toHaveText(address);
+        await expect(this.inputedValuePopup('State and City')).toHaveText(`${state} ${city}`);
+    };
+    async checkValidation(color) {
+        const elements = {
+            colorFirstName: await this.firstNameInput().getCSSProperty('border-color'),
+            colorLastName: await this.lastNameInput().getCSSProperty('border-color'),
+            colorEmail: await this.emailInput().getCSSProperty('border-color'),
+            colorMobile: await this.numberInput().getCSSProperty('border-color'),
+            colorGenderMale: await this.genderRadiobutton('Male').nextElement().getCSSProperty('color'),
+            colorGenderFemale: await this.genderRadiobutton('Female').nextElement().getCSSProperty('color'),
+            colorGenderOther: await this.genderRadiobutton('Other').nextElement().getCSSProperty('color'),
+        };
+        for (let key in elements) {
+            await expect(elements[key].value).toEqual(color);
+        };
+    };
+    open() {
+        return super.open('automation-practice-form');
     };
 }
 
