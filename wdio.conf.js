@@ -8,11 +8,6 @@ exports.config = {
     maxInstances: 10,
     capabilities: [{
         browserName: 'chrome',
-        "goog:chromeOptions": {
-            args: ["--use-fake-ui-for-media-stream",
-                "--use-fake-device-for-media-stream",
-                "--use-file-for-fake-video-capture=" + __dirname.replace(/\\/gi, '/') + '/test/pageobjects/testdata/test_stream.mjpeg']
-        }
     }],
     logLevel: 'info',
     bail: 0,
@@ -33,7 +28,22 @@ exports.config = {
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {
-       ui: 'bdd',
+        ui: 'bdd',
         timeout: 60000
     },
+    beforeSession(config, caps, specs) {
+        specs.forEach(element => {
+            /* Triggered if 'player.js' spec included into test run for web camera simulation */
+            if (element.includes('player.js')) {
+                return caps['goog:chromeOptions'] = {
+                    args: [
+                        '--use-fake-ui-for-media-stream',
+                        '--use-fake-device-for-media-stream',
+                        '--use-file-for-fake-video-capture=D:/Reps/Webdriver/Webdriver/test/pageobjects/testdata/test_stream.mjpeg'
+                    ]
+                }
+            };
+        });
+
+    }
 }

@@ -1,6 +1,6 @@
 # Информация о тестах
 
-Ссылка на портал - <a href = "https://the-internet.herokuapp.com/"> Link <a>
+Ссылка на портал - <a href = "https://demoqa.com/"> Link <a>
 
 # Список команд
 
