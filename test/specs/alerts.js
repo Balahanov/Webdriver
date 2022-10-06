@@ -7,7 +7,7 @@ describe('Allerts testing', () => {
     it('Check alert appears in 5 seconds after clicking the button', async () => {
         await alerts.timeAllertButton().click();
         await browser.pause(5050);
-        let alert = await browser.getAlertText();
+        const alert = await browser.getAlertText();
         expect(alert).toEqual('This alert appeared after 5 seconds');
     });
 
