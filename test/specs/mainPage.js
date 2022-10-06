@@ -1,4 +1,5 @@
-import { mainPage } from '../pageobjects/index.js';
+import { MainPage } from "../pageobjects/page/main.page";
+const mainPage = new MainPage();
 
 describe('Check elements on the main page', () => {
 

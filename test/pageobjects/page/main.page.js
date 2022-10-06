@@ -1,7 +1,6 @@
 import Page from "./page";
 
 class MainPage extends Page {
-
     title = () => $('.main-header');
     defaultDescription = () => $('.playgound-body').$('.col-md-6');
     menuDropdown(title) {
@@ -20,4 +19,4 @@ class MainPage extends Page {
     }
 }
 
-export default new MainPage()
+export {MainPage}
