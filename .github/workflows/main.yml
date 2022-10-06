@@ -20,7 +20,7 @@ jobs:
           run: npm install
 
         - name: Test
-          run: npm run wdio ./user/qa/qa.conf.js --spec ./test/specs/homePage.js
+          run: npm run qa
 
         - uses: actions/download-artifact@v3.0.0
           if: failure()
