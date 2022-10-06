@@ -1,4 +1,5 @@
-import alerts from '../pageobjects/page/alerts.page'
+import alerts from '../pageobjects/page/alerts.page';
+
 describe('Allerts testing', () => {
     beforeEach(() => {
         alerts.open();
