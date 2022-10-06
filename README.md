@@ -1,31 +1,29 @@
-# Информация о тестах
+# Test framework info
 
-Ссылка на портал - <a href = "https://demoqa.com/"> Link <a>
+Test portal link - <a href = "https://demoqa.com/"> Link <a>
 
-# Список команд
+# List of comands
 
-`npm install` - после клонирования репозитория
+`npm install` - after cloning repo
 
-## Отладка теста
+## Test developing command
 
 `npx wdio run ./user/qa/qa.conf.js --spec abtest.js`    
 
-где:
-> `./user/qa/qa.conf.js` - путь к конфиг файлу
-> `--spec abtest.js` - отдельно взятый файл
+where:
+> `./user/qa/qa.conf.js` - path to config file
+> `--spec abtest.js` - path to recuired test file
 
->После выполнения теста отчет не генерируется
+>After using this command, report is not generated
 
-## QA/Dev окружения
+## QA/Dev environments
 
-`npm run qa` - Запуск всех тестов на указанном окружении (тесты ранятся на браузере Chrome)
+`npm run qa` - Run tests for provided environment (qa or dev). Default browser - Chrome
   
-`npm run qa-cross` - Запуск всех тестов на браузерах Firefox, Chrome, Edge, Safari
+`npm run qa-cross` - Run tests with Firefox, Chrome, Edge, Safari browsers
 
-`mpm run generate-qa-report` - Генерация последнего отчета
-
->Так же все команды можно запускать для Dev окружения используя `dev` вместо `qa`
+`mpm run generate-qa-report` - Generate last qa or dev report
   
->Все тесты запускаются параллельно  
+>All tests are runned parallel
   
->Отчет автоматически гененрируется и запускается после проходжения всех сценариев
+>Report generated automatically after test run finished
