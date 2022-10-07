@@ -19,4 +19,4 @@ class MainPage extends Page {
     }
 }
 
-export {MainPage}
+export { MainPage }

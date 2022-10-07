@@ -1,10 +1,15 @@
-import { homePage, mainPage } from '../pageobjects/index.js';
+import homePage from "../pageobjects/page/home.page";
+import { MainPage } from '../pageobjects/page/main.page';
+const mainPage = new MainPage();
 
 describe('Check home page navigation', () => {
+    beforeEach(() => {
+        homePage.open('');
+        browser.setWindowSize(1920, 1080);
+        homePage.getBanner().isDisplayed();
+    });
 
     it('Navigate to the "Elements" page', async () => {
-        await homePage.open('');
-        await homePage.getBanner().isDisplayed();
         await homePage.getCard('Elements').scrollIntoView();
         await homePage.getCard('Elements').click();
         await expect(browser).toHaveUrlContaining('/elements');
@@ -13,8 +18,6 @@ describe('Check home page navigation', () => {
     });
 
     it('Navigate to the "Forms" page', async () => {
-        await homePage.open('');
-        await homePage.getBanner().isDisplayed();
         await homePage.getCard('Forms').scrollIntoView();
         await homePage.getCard('Forms').click();
         await expect(browser).toHaveUrlContaining('/forms');
@@ -23,8 +26,6 @@ describe('Check home page navigation', () => {
     });
 
     it('Navigate to the "Alerts, Frame & Windows" page" page', async () => {
-        await homePage.open('');
-        await homePage.getBanner().isDisplayed();
         await homePage.getCard('Alerts, Frame & Windows').scrollIntoView();
         await homePage.getCard('Alerts, Frame & Windows').click();
         await expect(browser).toHaveUrlContaining('/alertsWindows');
@@ -33,8 +34,6 @@ describe('Check home page navigation', () => {
     });
 
     it('Navigate to the "Widgets" page', async () => {
-        await homePage.open('');
-        await homePage.getBanner().isDisplayed();
         await homePage.getCard('Widgets').scrollIntoView();
         await homePage.getCard('Widgets').click();
         await expect(browser).toHaveUrlContaining('/widgets');
@@ -43,8 +42,6 @@ describe('Check home page navigation', () => {
     });
 
     it('Navigate to the "Interactions" page', async () => {
-        await homePage.open('');
-        await homePage.getBanner().isDisplayed();
         await homePage.getCard('Interactions').scrollIntoView();
         await homePage.getCard('Interactions').click();
         await expect(browser).toHaveUrlContaining('/interaction');
@@ -53,8 +50,6 @@ describe('Check home page navigation', () => {
     });
 
     it('Navigate to the "Book Store Application" page', async () => {
-        await homePage.open('');
-        await homePage.getBanner().isDisplayed();
         await homePage.getCard('Book Store Application').scrollIntoView();
         await homePage.getCard('Book Store Application').click();
         await expect(browser).toHaveUrlContaining('/books');
