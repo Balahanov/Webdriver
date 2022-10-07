@@ -9,7 +9,7 @@ exports.config = {
     capabilities: [{
         browserName: 'chrome',
     }],
-    logLevel: 'trace',
+    logLevel: 'error',
     bail: 1,
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,

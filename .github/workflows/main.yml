@@ -21,10 +21,13 @@ jobs:
 
         - name: Clear report
           run: npm run clear-qa-report
+
         - name: Test
           run: npm run pipeline-qa
+
         - name: Generate report
           run: npm run generate-qa-report
+          
         - uses: actions/download-artifact@v3.0.0
           if: failure()
           with:
