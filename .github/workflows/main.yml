@@ -26,8 +26,9 @@ jobs:
           run: npm run pipeline-qa 
           
         - name: Generate Report
+          if: always()
           run: npm run generate-qa-report
-          continue-on-error: true
+
           
         - uses: actions/download-artifact@v3.0.0
           if: always()
