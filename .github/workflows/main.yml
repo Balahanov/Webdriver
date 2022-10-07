@@ -1,34 +1,27 @@
 name: CI
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: windows-latest
     steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Setup Java
-          uses: actions/setup-java@v3
-          with:
-              distribution: 'microsoft'
-              java-version: '17'
-        - name: Setup Node
-          uses: actions/setup-node@v1
-          with:
-            node-version: 16
-
-        - name: Install
-          run: npm install
-
-        - name: Clear report
-          run: npm run clear-qa-report
-
+        - name: Prepare environment
+          uses: | 
+            actions/checkout@v2
+            actions/setup-node@v1
+            with:
+              node-version: 16
+            npm install
         - name: Test
           run: npm run pipeline-qa 
-          
-        - name: Generate Report
+        - name: Generate report
           if: always()
           run: npm run generate-qa-report
-
         - name: Upload a Build Artifact
           uses: actions/upload-artifact@v3.1.0
           if: always()
