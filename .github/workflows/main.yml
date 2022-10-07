@@ -9,8 +9,8 @@ jobs:
         - name: Setup Java
           uses: actions/setup-java@v3
           with:
-              distribution: 'microsoft' # See 'Supported distributions' for available options
-              java-version: '17'
+              distribution: 'microsoft'
+              java-version: '15'
         - name: Setup Node
           uses: actions/setup-node@v1
           with:
@@ -20,8 +20,7 @@ jobs:
           run: npm install
 
         - name: Test
-          run: npm run wdio ./user/qa/qa.conf.js --spec ./test/specs/homePage.js
-
+          run: npm run qa
         - uses: actions/download-artifact@v3.0.0
           if: failure()
           with:
