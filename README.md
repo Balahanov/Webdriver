@@ -2,6 +2,10 @@
 
 Test portal link - <a href = "https://demoqa.com/"> Link <a>
 
+Reporting - Allure
+
+CI/CD - GitHub CI
+
 # List of comands
 
 `npm install` - after cloning repo
