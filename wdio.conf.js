@@ -9,8 +9,8 @@ exports.config = {
     capabilities: [{
         browserName: 'chrome',
     }],
-    logLevel: 'warn',
-    bail: 1, 
+    logLevel: 'trace',
+    bail: 1,
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
@@ -45,5 +45,8 @@ exports.config = {
             };
         });
 
+    },
+    onComplete(exitCode) {
+        if (exitCode == 1) throw new Error('Test run includes failed tests')
     }
 }

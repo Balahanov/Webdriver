@@ -20,7 +20,9 @@ jobs:
           run: npm install
 
         - name: Test
-          run: npm run qa
+          run: clear-qa-report
+          run: pipeline-qa
+          run: generate-qa-report
         - uses: actions/download-artifact@v3.0.0
           if: failure()
           with:

@@ -21,6 +21,7 @@
         "wdio": "wdio run wdio.conf.js",
         "clear-qa-report": "rimraf ./report/qa/allure-results",
         "qa": "npm run clear-qa-report & wdio run ./user/qa/qa.conf.js & npm run generate-qa-report",
+        "pipeline-qa": "wdio run ./user/qa/qa.conf.js",
         "qa-cross": "npm run clear-qa-report & wdio run ./user/qa/qa.cross.conf.js & npm run generate-qa-report",
         "generate-qa-report": "npx allure generate ./report/qa/allure-results --clean -o ./report/allure-report",
         "clear-dev-report": "rimraf ./report/dev/allure-results",
