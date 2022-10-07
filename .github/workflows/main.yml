@@ -11,12 +11,11 @@ jobs:
     runs-on: windows-latest
     steps:
         - name: Prepare environment
-          uses: | 
-            actions/checkout@v2
-            actions/setup-node@v1
-            with:
-              node-version: 16
-            npm install
+          uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 16
+        - run: npm install
         - name: Test
           run: npm run pipeline-qa 
         - name: Generate report
