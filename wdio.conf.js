@@ -9,8 +9,8 @@ exports.config = {
     capabilities: [{
         browserName: 'chrome',
     }],
-    logLevel: 'error',
-    bail: 0,
+    logLevel: 'warn',
+    bail: 1, 
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
