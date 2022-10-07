@@ -27,6 +27,9 @@ jobs:
 
         - name: Generate report
           run: npm run generate-qa-report
+        - name: Allure report
+          uses: afiore/action-allure-report@v0.1.0
+
           
         - uses: actions/download-artifact@v3.0.0
           if: failure()
