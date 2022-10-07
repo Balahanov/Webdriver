@@ -35,7 +35,7 @@ exports.config = {
         specs.forEach(element => {
             /* Triggered if 'player.js' spec included into test run for web camera simulation */
             if (element.includes('player.js')) {
-                console.log('Web Camera simulation is triggered for current spec');
+                
                 return caps['goog:chromeOptions'] = {
                     args: [
                         '--use-fake-ui-for-media-stream',
@@ -45,6 +45,7 @@ exports.config = {
                 }
             };
         });
+        console.log(caps);
     },
     onComplete(exitCode) {
         if (exitCode == 1) throw new Error('Test run includes failed tests')
