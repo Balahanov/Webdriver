@@ -21,8 +21,8 @@ jobs:
 
         - name: Test
           run: clear-qa-report
-          run: pipeline-qa
-          run: generate-qa-report
+            pipeline-qa
+            generate-qa-report
         - uses: actions/download-artifact@v3.0.0
           if: failure()
           with:
