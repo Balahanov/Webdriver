@@ -5,12 +5,12 @@ switch (browser.config.envName) {
         //Data for QA env
         creds = {
             user1: {
-                login: "tomsmith",
-                password: "SuperSecretPassword!"
+                login: "User#1",
+                password: "Password#1"
             },
             user2: {
-                login: "admin",
-                password: "admin"
+                login: "User#2",
+                password: "Password#2"
             }
         }
         break;
