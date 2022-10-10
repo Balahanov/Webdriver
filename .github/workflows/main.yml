@@ -1,0 +1,32 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Test run
+    runs-on: windows-latest
+    steps:
+        - name: Prepare environment
+          uses: actions/checkout@v2
+        - name: Setup Node.js
+          uses: actions/setup-node@v1
+          with:
+            node-version: 16
+        - name: Install dependencies
+          run: npm install
+        - name: Test
+          run: npm run pipeline-qa 
+        - name: Generate report
+          if: always()
+          run: npm run generate-qa-report
+        - name: Upload a Build Artifact
+          uses: actions/upload-artifact@v3.1.0
+          if: always()
+          with:
+            name: report
+            path: report

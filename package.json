@@ -4,7 +4,6 @@
     "private": true,
     "devDependencies": {
         "@babel/preset-env": "^7.18.9",
-
         "@babel/register": "^7.18.9",
         "@wdio/allure-reporter": "^7.25.1",
         "@wdio/cli": "^7.25.1",
@@ -13,20 +12,26 @@
         "@wdio/spec-reporter": "^7.25.1",
         "chromedriver": "^106.0.1",
         "wdio-chromedriver-service": "^8.0.0",
+        "wdio-intercept-service": "^4.2.2",
         "wdio-vscode-service": "^4.1.0",
         "wdio-wait-for": "^2.2.6"
     },
     "scripts": {
         "report-open": "allure open ./report/allure-report",
         "wdio": "wdio run wdio.conf.js",
-        "clear-qa-report": "rimraf ./report/qa/allure-results",
+
         "qa": "npm run clear-qa-report & wdio run ./user/qa/qa.conf.js & npm run generate-qa-report",
         "qa-cross": "npm run clear-qa-report & wdio run ./user/qa/qa.cross.conf.js & npm run generate-qa-report",
-        "generate-qa-report": "npx allure generate ./report/qa/allure-results --clean -o ./report/allure-report & npm run report-open",
-        "clear-dev-report": "rimraf ./report/dev/allure-results",
+        "clear-qa-report": "rimraf ./report/qa/allure-results",
+        "generate-qa-report": "npx allure generate ./report/qa/allure-results --clean -o ./report/allure-report",
+        
         "dev": "npm run clear-dev-report & wdio run ./user/dev/dev.conf.js & npm run generate-dev-report",
         "dev-cross": "npm run clear-dev-report & wdio run ./user/dev/dev.cross.conf.js & npm run generate-dev-report",
-        "generate-dev-report": "npx allure generate ./report/dev/allure-results -o ./report/allure-report --clean ./report/allure-report & npm run report-open"
+        "clear-dev-report": "rimraf ./report/dev/allure-results",
+        "generate-dev-report": "npx allure generate ./report/dev/allure-results -o ./report/allure-report --clean ./report/allure-report",
+
+        "pipeline-qa": "wdio run ./user/qa/qa.conf.js",
+        "pipeline-dev": "wdio run ./user/dev/dev.conf.js"
     },
     "dependencies": {
         "allure-commandline": "^2.17.2"

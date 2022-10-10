@@ -9,8 +9,8 @@ exports.config = {
     capabilities: [{
         browserName: 'chrome',
     }],
-    logLevel: 'info',
-    bail: 0,
+    logLevel: 'error',
+    bail: 1,
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
@@ -35,15 +35,19 @@ exports.config = {
         specs.forEach(element => {
             /* Triggered if 'player.js' spec included into test run for web camera simulation */
             if (element.includes('player.js')) {
+                
                 return caps['goog:chromeOptions'] = {
                     args: [
                         '--use-fake-ui-for-media-stream',
                         '--use-fake-device-for-media-stream',
-                        '--use-file-for-fake-video-capture=D:/Reps/Webdriver/Webdriver/test/pageobjects/testdata/test_stream.mjpeg'
+                        `--use-file-for-fake-video-capture=${__dirname}\\test\\pageobjects\\testdata\\test_stream.mjpeg`
                     ]
                 }
             };
         });
-
+        console.log(caps);
+    },
+    onComplete(exitCode) {
+        if (exitCode == 1) throw new Error('Test run includes failed tests')
     }
 }
