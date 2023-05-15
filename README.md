@@ -31,3 +31,4 @@ where:
 >All tests are runned parallel
   
 >Report generated automatically after test run finished
+ 
